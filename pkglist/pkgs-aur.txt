@@ -1,0 +1,12 @@
+antigravity 1.23.2-1
+aonsoku-bin 0.14.0-1
+bridge-utils 1.7.1-5
+claude-code-bin 2.1.120-1
+cursor-bin 3.2.11-1
+feishin-bin 1.11.0-1
+kwin-effect-rounded-corners-git 0.8.7.r8.g1ad39af-1
+lib32-gst-plugins-base-libs 1.28.1-3
+lib32-gstreamer 1.28.1-3
+python-backports-zstd 1.2.0-3.1
+splix 2.0.1-2.1
+visual-studio-code-bin 1.117.0-1
