@@ -3,9 +3,17 @@ set -e
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "==> Installing Nothing KDE widgets..."
+echo "==> Installing Nothing KDE widgets and catwalk (from repo)..."
 mkdir -p ~/.local/share/plasma/plasmoids/
-cp -r "$DOTFILES_DIR"/widgets/com.jaxparrow07.nothingkdewidgets.* ~/.local/share/plasma/plasmoids/
+cp -r "$DOTFILES_DIR"/widgets/* ~/.local/share/plasma/plasmoids/
+echo "    Done."
+
+echo "==> Cloning panel widgets from GitHub..."
+PLASMOIDS=~/.local/share/plasma/plasmoids
+git clone --depth=1 https://github.com/dhruv8sh/kara "$PLASMOIDS/org.dhruv8sh.kara"
+git clone --depth=1 https://github.com/antroids/application-title-bar "$PLASMOIDS/com.github.antroids.application-title-bar"
+git clone --depth=1 --branch plasma6 https://github.com/EliverLara/kde-control-station "$PLASMOIDS/KdeControlStation"
+git clone --depth=1 https://github.com/EliverLara/AndromedaLauncher "$PLASMOIDS/AndromedaLauncher"
 echo "    Done. Restart plasmashell to load them."
 
 echo "==> Copying assets..."
