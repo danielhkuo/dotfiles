@@ -13,9 +13,19 @@ mkdir -p ~/Pictures
 cp "$DOTFILES_DIR/assets/fishing.png" ~/Pictures/
 echo "    Done."
 
+echo "==> Restoring KDE config..."
+mkdir -p ~/.config
+cp "$DOTFILES_DIR/kde/plasma-org.kde.plasma.desktop-appletsrc" ~/.config/
+cp "$DOTFILES_DIR/kde/plasmarc" ~/.config/
+cp "$DOTFILES_DIR/kde/kdeglobals" ~/.config/
+cp "$DOTFILES_DIR/kde/kwinrc" ~/.config/
+echo "    Done. Log out and back in to apply."
+
 echo ""
 echo "==> Package lists are in pkglist/"
 echo "    To reinstall everything: paru -S --needed - < pkglist/pkgs-explicit.txt"
 echo "    AUR packages:            paru -S --needed - < pkglist/pkgs-aur.txt"
 echo ""
-echo "Done! After adding your panels in KDE, configure the photo widget to point to ~/Pictures/fishing.png"
+echo "NOTE: The plasma config references widgets from your old setup (kara, AndromedaLauncher, etc.)"
+echo "      You'll need to reinstall those or rebuild your panels from scratch."
+echo "      Widget positions for the Nothing widgets on your second monitor are saved as reference."
