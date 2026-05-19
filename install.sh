@@ -6,6 +6,14 @@ PLASMOIDS=~/.local/share/plasma/plasmoids
 
 step() { echo; echo "==> $*"; }
 
+# ── 0. Validate ───────────────────────────────────────────────────────────────
+step "Validating packages and widget repos..."
+if ! bash "$DOTFILES_DIR/scripts/validate.sh"; then
+    echo
+    read -rp "Issues found above. Continue anyway? [y/N] " confirm
+    [[ "$confirm" =~ ^[Yy]$ ]] || exit 1
+fi
+
 # ── 1. Packages ───────────────────────────────────────────────────────────────
 step "Installing system packages..."
 paru -S --needed --noconfirm - < "$DOTFILES_DIR/pkglist/pkgs-explicit.txt"

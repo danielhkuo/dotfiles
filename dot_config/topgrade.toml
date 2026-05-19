@@ -15,3 +15,6 @@ upgrade = false
 
 [git]
 max_concurrency = 5
+
+[custom_commands]
+"Sync dotfiles package list" = "~/dotfiles/scripts/sync-pkglist.sh"
