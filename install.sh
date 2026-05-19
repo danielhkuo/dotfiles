@@ -56,11 +56,7 @@ clone_widget "https://github.com/EliverLara/AndromedaLauncher"     "$PLASMOIDS/A
 
 # ── 3. chezmoi (dotfiles) ─────────────────────────────────────────────────────
 step "Applying dotfiles via chezmoi..."
-if command -v chezmoi &>/dev/null; then
-    chezmoi init --apply "https://github.com/danielhkuo/dotfiles.git"
-else
-    echo "    chezmoi not installed — install it first: paru -S chezmoi"
-fi
+chezmoi init --apply "https://github.com/danielhkuo/dotfiles.git"
 
 # ── 4. KDE config ─────────────────────────────────────────────────────────────
 step "Restoring KDE layout and config..."
