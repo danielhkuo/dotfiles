@@ -1,0 +1,17 @@
+[misc]
+pre_sudo = true
+assume_yes = true
+disable = ["firmware"]
+cleanup = true
+notify_end = "on_failure"
+
+[linux]
+arch_package_manager = "paru"
+aur_package_manager_arguments = "--skipreview --nodiffmenu"
+
+[firmware]
+# Only show available firmware updates, do not flash anything
+upgrade = false
+
+[git]
+max_concurrency = 5

@@ -1,0 +1,11 @@
+# Existing repo content not managed by chezmoi
+assets
+install.sh
+kde
+pkglist
+widgets
+
+# Linux-only configs
+{{ if ne .chezmoi.os "linux" }}
+dot_config/topgrade.toml
+{{ end }}
