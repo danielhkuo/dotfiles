@@ -1,7 +1,9 @@
-antigravity
-aonsoku-bin
-claude-code-bin
+brave-origin-nightly-bin
 cursor-bin
 feishin-bin
-kwin-effect-rounded-corners-git
+jdk21-graalvm-bin
+mcreator
+surfshark-client
+topgrade-bin
 visual-studio-code-bin
+woeusb-ng

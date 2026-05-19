@@ -225,4 +225,4 @@ AppletOrder=122;83;84
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/Reminiscense-2.0-serverpack,0,acadd979-b631-4cf6-ac90-36ad5174fae2,desktop:/server,0,acadd979-b631-4cf6-ac90-36ad5174fae2,desktop:/Reminiscense-2.0-serverpack.zip,0,acadd979-b631-4cf6-ac90-36ad5174fae2,desktop:/server-mods,0,acadd979-b631-4cf6-ac90-36ad5174fae2
+screenMapping=desktop:/Reminiscense-2.0-serverpack.zip,0,acadd979-b631-4cf6-ac90-36ad5174fae2,desktop:/server-mods,0,acadd979-b631-4cf6-ac90-36ad5174fae2,desktop:/Reminiscense-2.0-serverpack,0,acadd979-b631-4cf6-ac90-36ad5174fae2,desktop:/server,0,acadd979-b631-4cf6-ac90-36ad5174fae2
