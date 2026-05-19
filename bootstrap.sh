@@ -20,13 +20,13 @@ if ! command -v gh &>/dev/null; then
     sudo pacman -S --noconfirm github-cli
 fi
 
-# ── 3. GitHub auth (interactive — opens browser) ──────────────────────────────
+# ── 3. GitHub auth (device flow — no browser required on this machine) ────────
 step "Checking GitHub authentication..."
 if ! gh auth status &>/dev/null; then
-    echo "  You'll need to authenticate with GitHub."
-    echo "  A browser window will open. Sign in and authorize the CLI."
+    echo "  Open https://github.com/login/device on any device (phone, another"
+    echo "  computer, etc.) and enter the code shown below."
     echo
-    gh auth login --web --git-protocol https
+    gh auth login --git-protocol https
 fi
 
 # ── 4. SSH key ────────────────────────────────────────────────────────────────
