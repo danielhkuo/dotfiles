@@ -1,7 +1,7 @@
 [misc]
 pre_sudo = true
 assume_yes = true
-disable = ["firmware"]
+disable = ["firmware", "containers"]
 cleanup = true
 notify_end = "on_failure"
 
