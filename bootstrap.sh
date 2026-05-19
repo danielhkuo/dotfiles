@@ -20,11 +20,16 @@ if ! command -v gh &>/dev/null; then
     sudo pacman -S --noconfirm github-cli
 fi
 
-# ── 3. GitHub auth (device flow — no browser required on this machine) ────────
+# ── 3. GitHub auth (device flow — scan QR with phone) ────────────────────────
 step "Checking GitHub authentication..."
 if ! gh auth status &>/dev/null; then
-    echo "  Open https://github.com/login/device on any device (phone, another"
-    echo "  computer, etc.) and enter the code shown below."
+    echo "  Scan this QR code with your phone, then enter the code shown below:"
+    echo
+    if command -v qrencode &>/dev/null; then
+        qrencode -t UTF8 "https://github.com/login/device"
+    else
+        echo "  https://github.com/login/device"
+    fi
     echo
     gh auth login --git-protocol https
 fi
