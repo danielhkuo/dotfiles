@@ -2,38 +2,78 @@
 set -e
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-echo "==> Installing Nothing KDE widgets and catwalk (from repo)..."
-mkdir -p ~/.local/share/plasma/plasmoids/
-cp -r "$DOTFILES_DIR"/widgets/* ~/.local/share/plasma/plasmoids/
-echo "    Done."
-
-echo "==> Cloning panel widgets from GitHub..."
 PLASMOIDS=~/.local/share/plasma/plasmoids
-git clone --depth=1 https://github.com/dhruv8sh/kara "$PLASMOIDS/org.dhruv8sh.kara"
-git clone --depth=1 https://github.com/antroids/application-title-bar "$PLASMOIDS/com.github.antroids.application-title-bar"
-git clone --depth=1 --branch plasma6 https://github.com/EliverLara/kde-control-station "$PLASMOIDS/KdeControlStation"
-git clone --depth=1 https://github.com/EliverLara/AndromedaLauncher "$PLASMOIDS/AndromedaLauncher"
-echo "    Done. Restart plasmashell to load them."
 
-echo "==> Copying assets..."
-mkdir -p ~/Pictures
-cp "$DOTFILES_DIR/assets/fishing.png" ~/Pictures/
-echo "    Done."
+step() { echo; echo "==> $*"; }
 
-echo "==> Restoring KDE config..."
+# ── 1. Packages ───────────────────────────────────────────────────────────────
+step "Installing system packages..."
+paru -S --needed --noconfirm - < "$DOTFILES_DIR/pkglist/pkgs-explicit.txt"
+
+step "Installing AUR packages..."
+paru -S --needed --noconfirm - < "$DOTFILES_DIR/pkglist/pkgs-aur.txt"
+
+# ── 2. Widgets ────────────────────────────────────────────────────────────────
+step "Installing bundled widgets (Nothing KDE, catwalk)..."
+mkdir -p "$PLASMOIDS"
+for widget_dir in "$DOTFILES_DIR"/widgets/*/; do
+    widget_id="$(basename "$widget_dir")"
+    if [ -d "$PLASMOIDS/$widget_id" ]; then
+        echo "    Skipping $widget_id (already installed)"
+    else
+        kpackagetool6 --type Plasma/Applet --install "$widget_dir"
+        echo "    Installed $widget_id"
+    fi
+done
+
+step "Cloning and installing GitHub widgets..."
+clone_widget() {
+    local url="$1" dest="$2" branch="${3:-}"
+    if [ -d "$dest" ]; then
+        echo "    Skipping $(basename "$dest") (already installed)"
+        return
+    fi
+    if [ -n "$branch" ]; then
+        git clone --depth=1 --branch "$branch" "$url" "$dest"
+    else
+        git clone --depth=1 "$url" "$dest"
+    fi
+    echo "    Cloned $(basename "$dest")"
+}
+
+clone_widget "https://github.com/dhruv8sh/kara"                    "$PLASMOIDS/org.dhruv8sh.kara"
+clone_widget "https://github.com/antroids/application-title-bar"   "$PLASMOIDS/com.github.antroids.application-title-bar"
+clone_widget "https://github.com/EliverLara/kde-control-station"   "$PLASMOIDS/KdeControlStation" "plasma6"
+clone_widget "https://github.com/EliverLara/AndromedaLauncher"     "$PLASMOIDS/AndromedaLauncher"
+
+# ── 3. chezmoi (dotfiles) ─────────────────────────────────────────────────────
+step "Applying dotfiles via chezmoi..."
+if command -v chezmoi &>/dev/null; then
+    chezmoi init --apply "https://github.com/danielhkuo/dotfiles.git"
+else
+    echo "    chezmoi not installed — install it first: paru -S chezmoi"
+fi
+
+# ── 4. KDE config ─────────────────────────────────────────────────────────────
+step "Restoring KDE layout and config..."
 mkdir -p ~/.config
 cp "$DOTFILES_DIR/kde/plasma-org.kde.plasma.desktop-appletsrc" ~/.config/
 cp "$DOTFILES_DIR/kde/plasmarc" ~/.config/
 cp "$DOTFILES_DIR/kde/kdeglobals" ~/.config/
 cp "$DOTFILES_DIR/kde/kwinrc" ~/.config/
-echo "    Done. Log out and back in to apply."
 
-echo ""
-echo "==> Package lists are in pkglist/"
-echo "    To reinstall everything: paru -S --needed - < pkglist/pkgs-explicit.txt"
-echo "    AUR packages:            paru -S --needed - < pkglist/pkgs-aur.txt"
-echo ""
-echo "NOTE: The plasma config references widgets from your old setup (kara, AndromedaLauncher, etc.)"
-echo "      You'll need to reinstall those or rebuild your panels from scratch."
-echo "      Widget positions for the Nothing widgets on your second monitor are saved as reference."
+# ── 5. Assets ─────────────────────────────────────────────────────────────────
+step "Copying assets..."
+mkdir -p ~/Pictures
+cp "$DOTFILES_DIR/assets/fishing.png" ~/Pictures/
+
+# ── 6. Services ───────────────────────────────────────────────────────────────
+step "Enabling Docker..."
+sudo systemctl enable --now docker
+sudo usermod -aG docker "$USER"
+
+# ── 7. Restart plasmashell ────────────────────────────────────────────────────
+step "Restarting plasmashell to apply layout..."
+systemctl restart --user plasma-plasmashell
+echo "    Done. Your panel and widget layout should be restored."
+echo "    If any widgets are missing, log out and back in."

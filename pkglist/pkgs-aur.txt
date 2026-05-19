@@ -1,7 +1,7 @@
-antigravity 1.23.2-1
-aonsoku-bin 0.14.0-1
-claude-code-bin 2.1.120-1
-cursor-bin 3.2.11-1
-feishin-bin 1.11.0-1
-kwin-effect-rounded-corners-git 0.8.7.r8.g1ad39af-1
-visual-studio-code-bin 1.117.0-1
+antigravity
+aonsoku-bin
+claude-code-bin
+cursor-bin
+feishin-bin
+kwin-effect-rounded-corners-git
+visual-studio-code-bin

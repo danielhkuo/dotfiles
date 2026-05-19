@@ -14,34 +14,6 @@ location=3
 plugin=org.kde.panel
 wallpaperplugin=org.kde.image
 
-[Containments][102][Applets][103]
-immutability=1
-plugin=org.dhruv8sh.kara
-
-[Containments][102][Applets][103][Configuration][ConfigDialog]
-DialogHeight=630
-DialogWidth=810
-
-[Containments][102][Applets][103][Configuration][general]
-highlightType=3
-type=0
-
-[Containments][102][Applets][104]
-immutability=1
-plugin=com.github.antroids.application-title-bar
-
-[Containments][102][Applets][104][Configuration][Appearance]
-widgetButtonsAuroraeTheme=Itchy
-widgetButtonsIconsTheme=Aurorae
-widgetButtonsMargins=10
-widgetElements=windowCloseButton,spacer,windowMaximizeButton,spacer,windowMinimizeButton,windowTitle
-widgetToolTipMode=Disabled
-windowTitleSource=AppName
-
-[Containments][102][Applets][104][Configuration][ConfigDialog]
-DialogHeight=630
-DialogWidth=810
-
 [Containments][102][Applets][106]
 immutability=1
 plugin=org.kde.plasma.panelspacer
@@ -51,15 +23,15 @@ immutability=1
 plugin=org.kde.plasma.panelspacer
 
 [Containments][102][Applets][107][Configuration][General]
-length=240
+length=500
 
 [Containments][102][Applets][119]
 immutability=1
 plugin=org.kde.plasma.catwalk
 
 [Containments][102][Applets][119][Configuration]
-popupHeight=396
-popupWidth=560
+popupHeight=400
+popupWidth=564
 
 [Containments][102][Applets][119][Configuration][ConfigDialog]
 DialogHeight=630
@@ -70,12 +42,12 @@ immutability=1
 plugin=KdeControlStation
 
 [Containments][102][Applets][121][Configuration]
-popupHeight=434
-popupWidth=323
+popupHeight=351
+popupWidth=300
 
 [Containments][102][Applets][121][Configuration][Appearance]
 animations=true
-customButtonImage=tweaks-app-symbolic
+customButtonImage=org.cachyos.hello
 layout=1
 scale=85
 showBattery=false
@@ -90,92 +62,117 @@ usePlasmaSliders=true
 DialogHeight=630
 DialogWidth=810
 
-[Containments][102][General]
-AppletOrder=104;107;103;106;119;121
+[Containments][102][Applets][133]
+immutability=1
+plugin=org.dhruv8sh.kara
 
-[Containments][78]
+[Containments][102][Applets][133][Configuration]
+popupHeight=433
+popupWidth=432
+
+[Containments][102][Applets][133][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
+[Containments][102][Applets][133][Configuration][general]
+type=0
+
+[Containments][102][Applets][137]
+immutability=1
+plugin=com.github.antroids.application-title-bar
+
+[Containments][102][Applets][137][Configuration][Appearance]
+widgetButtonsAuroraeTheme=Moe
+widgetButtonsIconsTheme=Aurorae
+widgetButtonsMargins=6
+widgetElements=windowCloseButton,spacer,windowMaximizeButton,spacer,windowMinimizeButton,windowTitle
+widgetToolTipMode=Disabled
+windowTitleMaximumWidth=200
+
+[Containments][102][Applets][137][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
+[Containments][102][General]
+AppletOrder=137;107;133;106;119;121
+
+[Containments][123]
 ItemGeometries-1920x1080=
 ItemGeometriesHorizontal=
-activityId=ceff1264-5507-4664-b85e-e84e7ab88637
+activityId=acadd979-b631-4cf6-ac90-36ad5174fae2
 formfactor=0
 immutability=1
 lastScreen=0
 location=0
 plugin=org.kde.plasma.folder
-wallpaperplugin=com.github.catsout.wallpaperEngineKde
+wallpaperplugin=org.kde.image
 
-[Containments][78][Wallpaper][com.github.catsout.wallpaperEngineKde][General]
-SteamLibraryPath[$e]=file:$HOME/.local/share/Steam
-WallpaperSource[$e]=file:$HOME/.local/share/Steam/steamapps/workshop/content/431960/2858284176/ingame.mp4+video
-WallpaperWorkShopId=2858284176
-
-[Containments][78][Wallpaper][org.kde.image][General]
-SteamLibraryPath[$e]=file:$HOME/.local/share/Steam
-WallpaperSource[$e]=file:$HOME/.local/share/Steam/steamapps/workshop/content/431960/1719211903/scene.json+scene
-WallpaperWorkShopId=1719211903
-
-[Containments][79]
-ItemGeometries-1920x1080=Applet-113:32,32,400,208,0;Applet-115:1376,32,512,208,0;Applet-114:1376,240,208,208,0;Applet-116:1584,240,304,416,0;
-ItemGeometriesHorizontal=Applet-113:32,32,400,208,0;Applet-115:1376,32,512,208,0;Applet-114:1376,240,208,208,0;Applet-116:1584,240,304,416,0;
-activityId=ceff1264-5507-4664-b85e-e84e7ab88637
+[Containments][124]
+ItemGeometries-1920x1080=Applet-126:1152,16,208,208,0;Applet-130:1392,16,208,304,0;Applet-125:1616,16,288,304,0;Applet-127:1360,320,544,208,0;
+ItemGeometriesHorizontal=Applet-126:1152,16,208,208,0;Applet-130:1392,16,208,304,0;Applet-125:1616,16,288,304,0;Applet-127:1360,320,544,208,0;
+activityId=acadd979-b631-4cf6-ac90-36ad5174fae2
 formfactor=0
 immutability=1
 lastScreen=1
 location=0
 plugin=org.kde.plasma.folder
-wallpaperplugin=com.github.catsout.wallpaperEngineKde
+wallpaperplugin=org.kde.image
 
-[Containments][79][Applets][113]
-immutability=1
-plugin=com.jaxparrow07.nothingkdewidgets.digitalclocklarge
-
-[Containments][79][Applets][113][Configuration][Appearance]
-fontStyle=1
-
-[Containments][79][Applets][113][Configuration][ConfigDialog]
-DialogHeight=630
-DialogWidth=810
-
-[Containments][79][Applets][114]
+[Containments][124][Applets][125]
 immutability=1
 plugin=com.jaxparrow07.nothingkdewidgets.media
 
-[Containments][79][Applets][115]
+[Containments][124][Applets][125][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
+[Containments][124][Applets][126]
+immutability=1
+plugin=com.jaxparrow07.nothingkdewidgets.digitalclock
+
+[Containments][124][Applets][126][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
+[Containments][124][Applets][126][Configuration][General]
+cityName=Houston
+widgetVariant=1
+
+[Containments][124][Applets][127]
 immutability=1
 plugin=com.jaxparrow07.nothingkdewidgets.weather
 
-[Containments][79][Applets][115][Configuration][ConfigDialog]
+[Containments][124][Applets][127][Configuration][ConfigDialog]
 DialogHeight=630
 DialogWidth=810
 
-[Containments][79][Applets][115][Configuration][General]
-location=Sugar Land
+[Containments][124][Applets][127][Configuration][General]
+location=Houston, United States
 temperatureUnit=1
+widgetVariant=0
 
-[Containments][79][Applets][116]
+[Containments][124][Applets][130]
 immutability=1
 plugin=com.jaxparrow07.nothingkdewidgets.photo
 
-[Containments][79][Applets][116][Configuration][ConfigDialog]
+[Containments][124][Applets][130][Configuration][ConfigDialog]
 DialogHeight=630
 DialogWidth=810
 
-[Containments][79][Applets][116][Configuration][Image]
+[Containments][124][Applets][130][Configuration][Image]
 imagePath=file:///home/dkuo/Pictures/fishing.png
+pillShapeEnabled=true
 
-[Containments][79][ConfigDialog]
+[Containments][124][ConfigDialog]
 DialogHeight=630
 DialogWidth=810
 
-[Containments][79][Wallpaper][com.github.catsout.wallpaperEngineKde][General]
-SteamLibraryPath[$e]=file:$HOME/.local/share/Steam
-WallpaperSource[$e]=file:$HOME/.local/share/Steam/steamapps/workshop/content/431960/1214148605/Snowfall in Forest   FREE Motion Background Animation - 4K.mp4+video
-WallpaperWorkShopId=1214148605
+[Containments][124][Wallpaper][org.kde.image][General]
+Image=file:///usr/share/wallpapers/cachyos-wallpapers/BlueFeathers.png
+SlidePaths=/home/dkuo/.local/share/wallpapers/,/home/dkuo/.local/share/wallpapers/,/usr/share/wallpapers/
 
-[Containments][79][Wallpaper][org.kde.image][General]
-SteamLibraryPath[$e]=file:$HOME/.local/share/Steam
-WallpaperSource[$e]=file:$HOME/.local/share/Steam/steamapps/workshop/content/431960/1512181248/scene.json+scene
-WallpaperWorkShopId=1512181248
+[Containments][23][Applets][28][Applets][37]
+plugin=org.kde.plasma.keyboardindicator
 
 [Containments][80]
 activityId=
@@ -200,10 +197,12 @@ DialogWidth=810
 
 [Containments][80][Applets][122][Configuration][General]
 compactListItems=true
+customButtonImage=org.cachyos.hello
 favoritesPortedToKAstats=true
 floating=true
 launcherPosition=1
 showItemsInGrid=true
+useCustomButtonImage=true
 useSystemFontSettings=true
 
 [Containments][80][Applets][83]
@@ -215,7 +214,7 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][80][Applets][83][Configuration][General]
-launchers=preferred://filemanager,applications:com.mitchellh.ghostty.desktop,applications:code.desktop,applications:steam.desktop,applications:zen.desktop,applications:obsidian.desktop,applications:vesktop.desktop
+launchers=preferred://filemanager,applications:zen.desktop,applications:dev.warp.Warp.desktop,applications:feishin.desktop,applications:dev.zed.Zed.desktop,applications:legcord.desktop,applications:org.prismlauncher.PrismLauncher.desktop
 
 [Containments][80][Applets][84]
 immutability=1
@@ -226,4 +225,4 @@ AppletOrder=122;83;84
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=
+screenMapping=desktop:/Reminiscense-2.0-serverpack,0,acadd979-b631-4cf6-ac90-36ad5174fae2,desktop:/server,0,acadd979-b631-4cf6-ac90-36ad5174fae2,desktop:/Reminiscense-2.0-serverpack.zip,0,acadd979-b631-4cf6-ac90-36ad5174fae2,desktop:/server-mods,0,acadd979-b631-4cf6-ac90-36ad5174fae2
