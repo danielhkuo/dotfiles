@@ -74,4 +74,10 @@ brew update
 brew upgrade
 brew upgrade --cask --greedy
 brew cleanup -s
+
+DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+if [ -x "$DOTFILES_DIR/scripts/sync.sh" ]; then
+    log "syncing dotfiles"
+    bash "$DOTFILES_DIR/scripts/sync.sh" || log "sync.sh failed (non-fatal)"
+fi
 log "done"
