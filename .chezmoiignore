@@ -1,11 +1,20 @@
-# Existing repo content not managed by chezmoi
+# Repo infrastructure — not user-home content
 assets
+bootstrap-cachyos.sh
+bootstrap-macos.sh
 install.sh
 kde
+macos
 pkglist
+scripts
 widgets
 
-# Linux-only configs
+# Linux-only chezmoi-managed configs
 {{ if ne .chezmoi.os "linux" }}
 dot_config/topgrade.toml
+{{ end }}
+
+# macOS-only chezmoi-managed configs
+{{ if ne .chezmoi.os "darwin" }}
+dot_config/karabiner
 {{ end }}

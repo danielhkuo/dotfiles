@@ -3,7 +3,7 @@
 # Everything is automated except the GitHub auth step.
 #
 # Usage:
-#   bash <(curl -fsSL https://raw.githubusercontent.com/danielhkuo/dotfiles/main/bootstrap.sh)
+#   bash <(curl -fsSL https://raw.githubusercontent.com/danielhkuo/dotfiles/main/bootstrap-cachyos.sh)
 set -e
 
 DOTFILES_DIR="$HOME/dotfiles"

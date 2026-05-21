@@ -5,15 +5,27 @@ set -e
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-# Package lists from live install
-pacman -Qqen > "$DOTFILES_DIR/pkglist/pkgs-explicit.txt"
-pacman -Qqem > "$DOTFILES_DIR/pkglist/pkgs-aur.txt"
+case "$(uname -s)" in
+    Linux)
+        # Package lists from live install
+        pacman -Qqen > "$DOTFILES_DIR/pkglist/pkgs-explicit.txt"
+        pacman -Qqem > "$DOTFILES_DIR/pkglist/pkgs-aur.txt"
 
-# chezmoi-managed dotfiles (gitconfig, gh config, micro, topgrade, etc.)
+        # KDE plasma layout (panels + desktop widget positions)
+        cp ~/.config/plasma-org.kde.plasma.desktop-appletsrc "$DOTFILES_DIR/kde/"
+        ;;
+    Darwin)
+        # Brewfile from live install
+        brew bundle dump --force --file="$DOTFILES_DIR/pkglist/Brewfile"
+        ;;
+    *)
+        echo "Unsupported OS: $(uname -s)" >&2
+        exit 1
+        ;;
+esac
+
+# chezmoi-managed dotfiles (gitconfig, gh config, micro, topgrade, karabiner, etc.)
 chezmoi re-add
-
-# KDE plasma layout (panels + desktop widget positions)
-cp ~/.config/plasma-org.kde.plasma.desktop-appletsrc "$DOTFILES_DIR/kde/"
 
 # Commit and push only if something actually changed
 if git -C "$DOTFILES_DIR" diff --quiet && git -C "$DOTFILES_DIR" diff --cached --quiet; then

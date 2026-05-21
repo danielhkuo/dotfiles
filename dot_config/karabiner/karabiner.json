@@ -1,0 +1,35 @@
+{
+    "global": {
+        "check_for_updates_on_startup": true,
+        "show_in_menu_bar": true,
+        "show_profile_name_in_menu_bar": false
+    },
+    "profiles": [
+        {
+            "name": "Default profile",
+            "selected": true,
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Swap fn and left_control (bottom-left key acts as control, for gaming)",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": { "key_code": "fn" },
+                                "to": [ { "key_code": "left_control" } ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": { "key_code": "left_control" },
+                                "to": [ { "key_code": "fn" } ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "virtual_hid_keyboard": {
+                "keyboard_type_v2": "ansi"
+            }
+        }
+    ]
+}
