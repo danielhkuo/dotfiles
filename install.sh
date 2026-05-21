@@ -95,8 +95,8 @@ install_macos() {
     fi
 
     # ── 1. Packages ───────────────────────────────────────────────────────────
-    step "Installing packages from Brewfile..."
-    brew bundle install --file="$DOTFILES_DIR/pkglist/Brewfile"
+    step "Installing packages from Brewfile (this can take a while — large casks like Flutter are >2 GB)..."
+    brew bundle install --file="$DOTFILES_DIR/pkglist/Brewfile" --verbose
 
     # ── 2. chezmoi (dotfiles) ─────────────────────────────────────────────────
     step "Applying dotfiles via chezmoi..."

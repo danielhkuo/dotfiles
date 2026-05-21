@@ -47,7 +47,14 @@ if ! gh auth status &>/dev/null; then
         echo "  https://github.com/login/device"
     fi
     echo
-    gh auth login --git-protocol https
+    gh auth login --git-protocol https --scopes admin:public_key
+fi
+
+# Ensure admin:public_key scope is present (needed for `gh ssh-key add`).
+# Covers users who authed previously without this scope.
+if ! gh auth status 2>&1 | grep -q 'admin:public_key'; then
+    step "Adding admin:public_key scope to existing GitHub auth..."
+    gh auth refresh -h github.com -s admin:public_key
 fi
 
 # ── 5. SSH key ────────────────────────────────────────────────────────────────
