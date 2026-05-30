@@ -31,7 +31,7 @@ Walks through:
 
 - **karabiner-elements**: open it once, grant *Input Monitoring* + *Accessibility* in System Settings → Privacy & Security. The packaged installer also needs interactive sudo, so install it from a terminal: `brew install --cask karabiner-elements`.
 - **Tailscale**: launch, sign in.
-- **Raycast**: launch, sign in (or skip for local-only).
+- **Supercmd**: launch, sign in.
 - **Warp**: launch, sign in with GitHub to pull synced terminal settings.
 - **Zen Browser**: sign in to Mozilla Sync to restore bookmarks/extensions/history.
 - **Brave**: paste sync chain to restore profile.
