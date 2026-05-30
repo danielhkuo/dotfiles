@@ -35,4 +35,5 @@ fi
 
 git -C "$DOTFILES_DIR" add -A
 git -C "$DOTFILES_DIR" commit -m "Auto-sync dotfiles ($(date +%Y-%m-%d))"
+git -C "$DOTFILES_DIR" pull --rebase
 git -C "$DOTFILES_DIR" push
