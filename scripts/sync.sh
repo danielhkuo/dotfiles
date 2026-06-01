@@ -25,7 +25,7 @@ case "$(uname -s)" in
 esac
 
 # chezmoi-managed dotfiles (gitconfig, gh config, micro, topgrade, karabiner, etc.)
-chezmoi re-add --source-dir "$DOTFILES_DIR"
+chezmoi --source-dir "$DOTFILES_DIR" re-add
 
 # Commit and push only if something actually changed
 if git -C "$DOTFILES_DIR" diff --quiet && git -C "$DOTFILES_DIR" diff --cached --quiet; then
