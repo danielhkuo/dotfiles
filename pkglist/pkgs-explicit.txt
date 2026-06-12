@@ -52,6 +52,7 @@ claude-code
 cmake
 cpupower
 cryptsetup
+cursor-bin
 deluge-gtk
 device-mapper
 diffutils

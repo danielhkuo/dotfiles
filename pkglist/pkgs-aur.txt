@@ -1,5 +1,4 @@
 brave-origin-nightly-bin
-cursor-bin
 feishin-bin
 jdk21-graalvm-bin
 mcreator
