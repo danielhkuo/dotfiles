@@ -18,3 +18,6 @@ dot_config/topgrade.toml
 {{ if ne .chezmoi.os "darwin" }}
 dot_config/karabiner
 {{ end }}
+
+# Repo docs — not a home file
+README.md
