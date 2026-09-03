@@ -1,101 +1,225 @@
 tap "adoptopenjdk/openjdk"
+tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git"
 tap "dart-lang/dart"
-tap "koekeishiya/formulae"
+tap "kgarner7/feishin", trusted: true
+tap "raullenchai/rapid-mlx", trusted: true
 tap "spicetify/tap"
-tap "supercmdlabs/supercmd"
-brew "python@3.13"
+tap "supabase/tap"
+tap "supercmdlabs/supercmd", trusted: { casks: ["supercmd"] }
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
+# Microsoft Azure CLI 2.0
 brew "azure-cli"
+# Vector graphics library with cross-device output support
 brew "cairo"
+# Development kit for the Java programming language
 brew "openjdk"
+# Command-line tool to manipulate Android App Bundles
 brew "bundletool"
+# GNU File, Shell, and Text utilities
 brew "coreutils"
+# Emacs dependency management
 brew "cask"
+# Console Bonsai is a bonsai tree generator, written in C using ncurses
 brew "cbonsai"
+# Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
+brew "cloudflared"
+# Powerful, clean, object-oriented scripting language
 brew "ruby"
+# Dependency manager for Cocoa projects
 brew "cocoapods"
+# Dart Language SDK, including the VM, dart2js, core libraries, and more
 brew "dart-sdk"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
 brew "fd"
-brew "sdl2"
+# SDL2 compatibility layer that uses SDL3 behind the scenes
+brew "sdl2-compat"
+# Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
+# Framework for layout and rendering of i18n text
 brew "pango"
+# Command-line outline and bitmap font editor/converter
 brew "fontforge"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# GNU compiler collection
 brew "gcc"
+# GitHub command-line tool
 brew "gh"
+# Distributed revision control system
 brew "git"
+# Quickly rewrite git repository history
 brew "git-filter-repo"
+# Git extension for versioning large files
+brew "git-lfs"
+# Simple and efficient way to access statistics in git
 brew "git-quick-stats"
+# Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
+# Open-source video transcoder available for Linux, Mac, and Windows
 brew "handbrake"
+# Configurable static site generator
+brew "hugo"
+# C/C++ and Java libraries for Unicode and globalization
 brew "icu4c@76"
+# Command-line tool to export and inspect local iMessage database
 brew "imessage-exporter"
+# Alternative to the official immich-CLI command written in Go
 brew "immich-go"
+# Manage your Java environment
 brew "jenv"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
+# Modern load testing tool, using Go and JavaScript
+brew "k6"
+# Securely transfers data between computers
 brew "magic-wormhole"
+# Java-based project management
 brew "maven"
+# Modern and intuitive terminal-based text editor
 brew "micro"
+# Open-source, cross-platform JavaScript runtime environment
 brew "node"
+# MongoDB Shell to connect, configure, query, and work with your MongoDB database
 brew "mongosh"
+# Atlas CLI enables you to manage your MongoDB Atlas
 brew "mongodb-atlas-cli"
+# Feature-rich command-line audio/video downloader
 brew "yt-dlp"
+# Media player based on MPlayer and mplayer2
 brew "mpv"
+# HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
 brew "nginx"
+# Adds an OCR text layer to scanned PDF files
 brew "ocrmypdf"
-brew "ollama", restart_service: :changed
+# Development kit for the Java programming language
 brew "openjdk@17", link: true
+# Package compiler and linker metadata toolkit
 brew "pkgconf"
+# PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.12"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+# QR Code generation
 brew "qrencode"
+# Fast local AI engine for Apple Silicon with an OpenAI-compatible API
+brew "rapid-mlx"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Powerful, clean, object-oriented scripting language
 brew "ruby@3.1"
+# Command-line tool to customize Spotify client
 brew "spicetify-cli"
+# Terminal multiplexer
+brew "tmux"
+# Upgrade all the things
 brew "topgrade"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# HTTP load testing tool and library
+brew "vegeta"
+# Watch files and take action when they change
 brew "watchman"
-brew "dart-lang/dart/dart", link: false
+# Supabase CLI
+brew "supabase/tap/supabase", trusted: true
+# Memory training application
 cask "anki"
+# Multi-track audio editor and recorder
 cask "audacity"
+# Compact TeX distribution as alternative to the full TeX Live / MacTeX
+cask "basictex"
+# Desktop password and login vault
 cask "bitwarden"
+# Web browser focusing on privacy
 cask "brave-browser"
+# Anthropic's official Claude AI desktop app
 cask "claude"
+# Write, edit, and chat about your code with AI
 cask "cursor"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
+# Modern self-hosted music player
+cask "kgarner7/feishin/feishin"
+# Web browser
+cask "firefox"
+# UI toolkit for building applications for mobile, web and desktop
 cask "flutter"
+# Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
+# Client for the Google Drive storage service
 cask "google-drive"
+# AI-powered notepad for meetings
 cask "granola"
+# JetBrains tools manager
 cask "jetbrains-toolbox"
+# Keyboard customiser
 cask "karabiner-elements"
+# Custom Discord client
 cask "legcord"
+# Multi-platform web browser
+cask "microsoft-edge"
+# Open-source download manager
 cask "motrix"
+# TouchBar customization app
 cask "mtmr"
+# Open-source music notation software
 cask "musescore"
+# Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Get up and running with large language models locally
+cask "ollama-app"
+# Programmable solid 3D CAD modeller
 cask "openscad"
+# Minecraft launcher
 cask "prismlauncher"
-cask "supercmd"
+# Instant messaging application focusing on security
 cask "signal"
+# Team communication and collaboration software
 cask "slack"
+# Music streaming service
 cask "spotify"
+# VPN client for secure internet access and private browsing
+cask "surfshark"
+# Mesh VPN based on WireGuard
 cask "tailscale-app"
+# Messaging app with a focus on speed and security
 cask "telegram"
+# JDK from the Eclipse Foundation (Adoptium)
 cask "temurin@21"
+# To-do list
 cask "todoist-app"
+# Open-source code editor
 cask "visual-studio-code"
+# Multimedia player
 cask "vlc"
+# Rust-based terminal
 cask "warp"
+# Native desktop client for WhatsApp
+cask "whatsapp"
+# REST, GraphQL and gRPC client
 cask "yaak"
+# Multiplayer code editor
 cask "zed"
+# Gecko based web browser
 cask "zen"
+# OpenJDK distribution from Azul
 cask "zulu@8"
-vscode "anthropic.claude-code"
 vscode "bradlc.vscode-tailwindcss"
 vscode "davidanson.vscode-markdownlint"
 vscode "dbaeumer.vscode-eslint"
+vscode "divyanshuagrawal.competitive-programming-helper"
 vscode "draivin.hscopes"
 vscode "ecmel.vscode-html-css"
 vscode "esbenp.prettier-vscode"
@@ -135,7 +259,15 @@ vscode "vscjava.vscode-maven"
 go "golang.org/x/tools/gopls"
 go "honnef.co/go/tools/cmd/staticcheck"
 go "github.com/swaggo/swag/cmd/swag"
+cargo "cargo-binstall"
+cargo "cargo-deny"
+cargo "sqlx-cli"
+uv "browser-use"
+uv "pyrefly"
 npm "@expo/cli"
+npm "@magnitudedev/cli"
+npm "@openai/codex"
 npm "eas-cli"
 npm "netlify-cli"
 npm "ppllm"
+npm "vercel"
