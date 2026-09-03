@@ -37,9 +37,18 @@ current_ssid() {
     local ssid
     ssid="$(ipconfig getsummary "$iface" 2>/dev/null \
         | awk -F ' SSID : ' '/ SSID : / {print $2; exit}')"
-    if [ -z "$ssid" ]; then
+    if [ -z "$ssid" ] || [ "$ssid" = "<redacted>" ]; then
         ssid="$(networksetup -getairportnetwork "$iface" 2>/dev/null \
             | sed -n 's/^Current Wi-Fi Network: //p')"
+    fi
+    # macOS 15+/26 redacts the SSID for anything without Location Services
+    # (which a LaunchAgent can never hold). Fall back to identifying the
+    # network by its default gateway: "gw:<router-ip>".
+    if [ -z "$ssid" ] || [ "$ssid" = "<redacted>" ]; then
+        local gw
+        gw="$(ipconfig getsummary "$iface" 2>/dev/null \
+            | awk -F ' Router : ' '/ Router : / {print $2; exit}')"
+        [ -n "$gw" ] && ssid="gw:$gw"
     fi
     [ -n "$ssid" ] && printf '%s' "$ssid"
 }
@@ -57,6 +66,13 @@ on_safe_network() {
     log "current SSID ($ssid) not in allowlist"
     return 1
 }
+
+# --check: report what the gate would decide, then exit without upgrading
+if [ "${1:-}" = "--check" ]; then
+    on_ac_power && log "on AC power" || log "not on AC power"
+    on_safe_network || log "would skip"
+    exit 0
+fi
 
 # Bail unless conditions are right
 on_ac_power || { log "not on AC power; skipping"; exit 0; }

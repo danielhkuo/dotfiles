@@ -32,9 +32,17 @@ current_ssid() {
     [ -n "$iface" ] || return 1
     ssid="$(ipconfig getsummary "$iface" 2>/dev/null \
         | awk -F ' SSID : ' '/ SSID : / {print $2; exit}')"
-    if [ -z "$ssid" ]; then
+    if [ -z "$ssid" ] || [ "$ssid" = "<redacted>" ]; then
         ssid="$(networksetup -getairportnetwork "$iface" 2>/dev/null \
             | sed -n 's/^Current Wi-Fi Network: //p')"
+    fi
+    # Same fallback as brew-autoupdate.sh: SSID is redacted without Location
+    # Services on newer macOS, so identify the network by gateway instead.
+    if [ -z "$ssid" ] || [ "$ssid" = "<redacted>" ]; then
+        local gw
+        gw="$(ipconfig getsummary "$iface" 2>/dev/null \
+            | awk -F ' Router : ' '/ Router : / {print $2; exit}')"
+        [ -n "$gw" ] && ssid="gw:$gw"
     fi
     [ -n "$ssid" ] && printf '%s' "$ssid"
 }
@@ -52,8 +60,8 @@ cmd_list() {
 
 cmd_add() {
     local ssid="${1:-}"
-    if [ -z "$ssid" ]; then
-        echo "Empty SSID; aborting." >&2
+    if [ -z "$ssid" ] || [ "$ssid" = "<redacted>" ]; then
+        echo "Empty or redacted SSID; aborting." >&2
         return 1
     fi
     if grep -Fxq "$ssid" "$ALLOWLIST" 2>/dev/null; then

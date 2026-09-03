@@ -113,6 +113,10 @@ Log: `~/Library/Logs/brew-autoupdate.log`.
 
 Manually trigger (identical to the scheduled run): `launchctl kickstart -k gui/$UID/com.danielkuo.brew-autoupdate`.
 
+Dry-run the gate (AC power + network check, no upgrade): `bash macos/brew-autoupdate.sh --check`.
+
+**SSID redaction:** macOS 15+/26 returns `<redacted>` for the SSID unless the caller has Location Services, which a LaunchAgent never does. Both scripts fall back to identifying the network by its default gateway, stored as `gw:<router-ip>` in the allowlist. Same workflow, just a different-looking name.
+
 **Managing the SSID allowlist:**
 
 ```bash
